@@ -2,16 +2,25 @@
   <div class="page-header">
     <h1>{{vm.code._id ? 'Edit Code' : 'New Code'}}</h1>
   </div>
+
   <div class="col-md-12">
     <form name="vm.form.codeForm" class="form-horizontal" ng-submit="vm.save(vm.form.codeForm.$valid)" novalidate>
       <fieldset>
         <div class="form-group" show-errors>
-          <label class="control-label" for="name">Name</label>
-          <input name="name" type="text" ng-model="vm.code.name" id="name" class="form-control" placeholder="Name" required>
-          <div ng-messages="vm.form.codeForm.name.$error" role="alert">
-            <p class="help-block error-text" ng-message="required">Code name is required.</p>
+          <label class="control-label" for="description">Description</label>
+          <input name="description" type="text" ng-model="vm.code.description" id="description" class="form-control" placeholder="Description" required>
+          <div ng-messages="vm.form.codeForm.description.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Code description is required.</p>
           </div>
         </div>
+        <div class="form-group" show-errors>
+          <label class="control-label" for="description">Code Snippet</label>
+          <textarea name="code" type="text" ng-model="vm.code.code" id="code" class="form-control" placeholder="Enter your code" rows="10" cols="30" required></textarea>
+          <div ng-messages="vm.form.codeForm.code.$error" role="alert">
+            <p class="help-block error-text" ng-message="required">Code snippet is required.</p>
+          </div>
+        </div>
+
         <div class="form-group">
           <button type="submit" class="btn btn-default">{{vm.code._id ? 'Update' : 'Create'}}</button>
         </div>
@@ -22,3 +31,4 @@
     </form>
   </div>
 </section>
+
